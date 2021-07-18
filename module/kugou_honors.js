@@ -80,8 +80,7 @@ module.exports = async (query, request) => {
     data: {
       overview,
       details: result,
-      updatedAt,
     },
-    tag: 'honors',
+    updatedAt,
   };
 };

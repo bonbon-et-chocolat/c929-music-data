@@ -17,5 +17,8 @@ module.exports = async (query, request) => {
     name: dissname,
     id: disstid,
   }));
-  return results;
+  return {
+    data: results,
+    updatedAt: Date.now(),
+  };
 };

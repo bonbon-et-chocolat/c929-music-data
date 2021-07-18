@@ -84,12 +84,14 @@ module.exports = async (query, request) => {
   ]);
 
   return {
-    year_listener,
-    singer_energy_rank,
-    singer_fans_count,
-    heatoffset,
-    heat,
-    heatrank,
+    data: {
+      year_listener,
+      singer_energy_rank,
+      singer_fans_count,
+      heatoffset,
+      heat,
+      heatrank,
+    },
     updatedAt: Date.now(),
   };
 };

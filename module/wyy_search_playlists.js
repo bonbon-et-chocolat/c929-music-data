@@ -6,7 +6,10 @@ module.exports = async () => {
       keywords: '周深',
       type: 1000,
     });
-    return songs.body.result.playlists;
+    return {
+      data: songs.body.result.playlists,
+      updatedAt: Date.now(),
+    };
   } catch (error) {
     return [];
   }

@@ -68,7 +68,10 @@ module.exports = async (query, request) => {
   const rank = await getSongRankTop(request, [a, b, c, d, e]);
 
   return {
-    songs,
-    rank,
+    data: {
+      songs,
+      rank,
+    },
+    updatedAt: Date.now(),
   };
 };

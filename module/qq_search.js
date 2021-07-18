@@ -25,5 +25,8 @@ module.exports = async (query, request) => {
       Referer: 'https://y.qq.com',
     },
   });
-  return result;
+  return {
+    data: result,
+    updatedAt: Date.now(),
+  };
 };

@@ -17,17 +17,19 @@ function formatPlaylist(results) {
 }
 
 module.exports = async (query) => {
-  try {
-    const promises = HotPlaylists.map((l) => playlist_detail({
-      id: l,
-    }));
-    const results_raw = await Promise.all(promises);
-    const playlists = results_raw.map((x) => x.body.playlist);
-    if (query?.raw === false) {
-      return playlists;
-    }
-    return formatPlaylist(playlists);
-  } catch (error) {
-    return {};
+  let data = null;
+  const promises = HotPlaylists.map((l) => playlist_detail({
+    id: l,
+  }));
+  const results_raw = await Promise.all(promises);
+  const playlists = results_raw.map((x) => x.body.playlist);
+  if (query?.raw === false) {
+    data = playlists;
+  } else {
+    data = formatPlaylist(playlists);
   }
+  return {
+    data,
+    updatedAt: Date.now(),
+  };
 };

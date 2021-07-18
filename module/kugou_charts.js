@@ -57,7 +57,7 @@ module.exports = async (query, request) => {
   let results = await Promise.all(chartIds.map(async (id) => getChartSongs(id, request)));
   results = results.filter((chart) => chart.song.length > 0);
   return {
-    timestamp: Date.now(),
+    updatedAt: Date.now(),
     data: results,
   };
 };
