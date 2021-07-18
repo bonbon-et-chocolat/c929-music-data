@@ -53,7 +53,7 @@ async function getChartSongs(chartID = 8888, request) {
 }
 
 module.exports = async (query, request) => {
-  const chartIds = query?.ids || Object.values(KUGOU.CHARTS);
+  const chartIds = query.ids || Object.values(KUGOU.CHARTS);
   let results = await Promise.all(chartIds.map(async (id) => getChartSongs(id, request)));
   results = results.filter((chart) => chart.song.length > 0);
   return {

@@ -23,7 +23,7 @@ module.exports = async (query) => {
   }));
   const results_raw = await Promise.all(promises);
   const playlists = results_raw.map((x) => x.body.playlist);
-  if (query?.raw === false) {
+  if (query.raw === false) {
     data = playlists;
   } else {
     data = formatPlaylist(playlists);
