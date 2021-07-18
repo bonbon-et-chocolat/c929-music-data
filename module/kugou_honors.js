@@ -1,6 +1,5 @@
 const md5 = require('md5');
-
-const singerId = '169967';
+const { KUGOU } = require('../util/Constants');
 
 async function getHonorWall(request) {
   const url = 'https://h5activity.kugou.com/v1/query_singer_honour_wall';
@@ -8,7 +7,7 @@ async function getHonorWall(request) {
   const HASH = 'NVPh5oo715z5DIWAeQlhMDsWXXQV4hwt';
   const original = `${HASH}clienttime=${ts}clientver=20000dfid=-mid=${ts}singer_id=169967srcappid=2919uuid=${ts}${HASH}`;
   const query = {
-    singerId,
+    singer_id: KUGOU.SINGER_ID,
     srcappid: '2919',
     clientver: '20000',
     clienttime: ts,
@@ -30,7 +29,7 @@ async function getHonors(request, result, hashMap, page) {
   const HASH = 'NVPh5oo715z5DIWAeQlhMDsWXXQV4hwt';
   const original = `${HASH}clienttime=${ts}clientver=20000dfid=-mid=${ts}page=${page}singer_id=169967srcappid=2919uuid=${ts}${HASH}`;
   const query = {
-    singerId,
+    singer_id: KUGOU.SINGER_ID,
     srcappid: '2919',
     clientver: '20000',
     page,

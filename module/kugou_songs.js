@@ -1,5 +1,6 @@
-// song meta
-const singerId = '169967';
+const { KUGOU } = require('../util/Constants');
+
+const singerId = KUGOU.SINGER_ID;
 
 function getSongTitle(filename) {
   return filename.replace(/^.*-\s/, '');

@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
-const singerId = '169967';
+const { KUGOU } = require('../util/Constants');
+
+const singerId = KUGOU.SINGER_ID;
 // year listener, song count
 async function getSingerInfo(request) {
   const url = 'http://mobilecdngz.kugou.com/api/v3/singer/info';
@@ -82,14 +84,12 @@ module.exports = async (query, request) => {
   ]);
 
   return {
-    data: {
-      year_listener,
-      singer_energy_rank,
-      singer_fans_count,
-      heatoffset,
-      heat,
-      heatrank,
-      updatedAt: Date.now(),
-    },
+    year_listener,
+    singer_energy_rank,
+    singer_fans_count,
+    heatoffset,
+    heat,
+    heatrank,
+    updatedAt: Date.now(),
   };
 };
