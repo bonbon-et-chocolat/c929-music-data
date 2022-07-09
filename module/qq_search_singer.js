@@ -32,7 +32,7 @@ module.exports = async (query, request) => {
   const formatted = raw.map(({ songInfo }) => ({
     songmid: songInfo.mid,
     songid: songInfo.id,
-    songname: songInfo.name,
+    songname: songInfo.title,
     pay: songInfo.pay.pay_play,
     pubtime: songInfo.time_public,
     fnote: songInfo.fnote,
