@@ -27,8 +27,18 @@ module.exports = async (query, request) => {
       Referer: 'https://y.qq.com',
     },
   });
+
+  const raw = result?.req_0?.data?.songList ?? [];
+  const formatted = raw.map(({ songInfo }) => ({
+    songmid: songInfo.mid,
+    songid: songInfo.id,
+    songname: songInfo.name,
+    pay: songInfo.pay.pay_play,
+    pubtime: songInfo.time_public,
+    fnote: songInfo.fnote,
+  }));
   return {
-    data: result.req_0,
+    data: formatted,
     updatedAt: Date.now(),
   };
 };
